@@ -2,32 +2,33 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
   <title>Time Bubble Sand</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="app">
-    <canvas id="game" width="320" height="180"></canvas>
-    <div id="hud">
-      <span id="fps">FPS: —</span>
-      <span id="bubble-info">R: 35</span>
+    <div id="topbar">
+      <div id="hud">
+        <span id="fps">FPS: —</span>
+        <span id="bubble-info">R: 35</span>
+      </div>
+      <div id="radius-controls">
+        <button type="button" id="radius-minus" aria-label="Уменьшить радиус">−</button>
+        <input type="range" id="bubble-radius" min="15" max="60" value="35" aria-label="Радиус пузыря" />
+        <button type="button" id="radius-plus" aria-label="Увеличить радиус">+</button>
+      </div>
     </div>
+
     <div id="palette" aria-label="Материалы"></div>
-    <div id="mobile-controls">
-      <div id="dpad">
-        <button type="button" data-move="0,-1" aria-label="Вверх">▲</button>
-        <div class="dpad-mid">
-          <button type="button" data-move="-1,0" aria-label="Влево">◀</button>
-          <button type="button" data-move="1,0" aria-label="Вправо">▶</button>
-        </div>
-        <button type="button" data-move="0,1" aria-label="Вниз">▼</button>
-      </div>
-      <div id="bubble-slider-wrap">
-        <label for="bubble-radius">Радиус пузыря</label>
-        <input type="range" id="bubble-radius" min="15" max="60" value="35" />
+
+    <div id="stage">
+      <canvas id="game" width="320" height="180"></canvas>
+      <div id="joystick" aria-label="Джойстик движения">
+        <div id="joystick-thumb"></div>
       </div>
     </div>
+
     <p id="hint">WASD — движение · ЛКМ — рисовать · [ ] — радиус · 1–6 — материал</p>
   </div>
   <script type="module" src="js/main.js"></script>
